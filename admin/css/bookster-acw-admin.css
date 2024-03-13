@@ -1,0 +1,63 @@
+.post-type-bookster_ac_widgets #poststuff .inside {
+  margin-top: 2px;
+}
+
+.post-type-bookster_ac_widgets #poststuff .inside.shortcode-container {
+  margin-top: 18px;
+}
+
+.post-type-bookster_ac_widgets .inside p.description {
+  margin: 8px 2px 0;
+}
+
+.post-type-bookster_ac_widgets .inside p.description label {
+  cursor: pointer;
+}
+
+.post-type-bookster_ac_widgets .inside p.description span.shortcode {
+  display: block;
+  margin: 2px 0;
+}
+
+.post-type-bookster_ac_widgets .inside p.description span.shortcode input {
+  color: #fff;
+  cursor: pointer;
+}
+
+.post-type-bookster_ac_widgets #bookster-property-id {
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+
+.post-type-bookster_ac_widgets #bookster-property-id .handle-actions {
+  display: none;
+}
+
+.post-type-bookster_ac_widgets #bookster-property-id .postbox-header {
+  border-bottom: none;
+}
+
+.post-type-bookster_ac_widgets #bookster-property-id .postbox-header .hndle {
+  cursor: auto;
+  padding: 0;
+}
+
+.post-type-bookster_ac_widgets #bookster-property-id .inside {
+  padding: 0;
+}
+
+.post-type-bookster_ac_widgets span.shortcode input[readonly],
+#bookster-acws-list-table span.shortcode input[readonly] {
+  background: transparent;
+  font-size: 12px;
+  border: none;
+  box-shadow: none;
+  padding: 4px 8px;
+  margin: 0;
+}
+
+#bookster-acws-list-table span.shortcode input[readonly] {
+  padding: 0;
+  cursor: pointer;
+}
