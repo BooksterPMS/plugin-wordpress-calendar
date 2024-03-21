@@ -1,7 +1,7 @@
 === Bookster ACW ===
 Contributors: (this should be a list of wordpress.org userid's)
 Tags: calendar, booking, widget, bookster
-Requires at least: 6.4
+Requires at least: 5.3
 Requires PHP: 7.4
 Tested up to: 6.4
 Stable tag: 1.0
