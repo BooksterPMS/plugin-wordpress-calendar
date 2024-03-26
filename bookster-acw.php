@@ -38,6 +38,8 @@ class Bookster_ACW
 
     add_action( 'plugins_loaded', array($this,'pluginLoaded'), 10);
 
+    add_action( 'edit_form_top', array($this, 'editFormTop'));
+
     add_action( 'edit_form_after_title', array($this,'editFormAfterTitle'));
 
     if(is_admin()) {
@@ -312,12 +314,7 @@ class Bookster_ACW
       <a class="page-title-action" href="post-new.php?post_type=<?php echo self::post_type ?>">Add New</a>
 
       <hr class="wp-header-end">
-      <div class="notice notice-info">
-        <p><strong>Important:</strong> You need a <a href="https://www.booksterhq.com/">Bookster</a> subscription and have a Bookster Property ID to add to your calendar widget for it to work.</p>
-        <p>Property IDs can be found in the Bookster dashboard. Go to view a specific property and its Property ID will be the number displayed in the top right hand corner of the Listing Strength box.</p>
-        <p>Add and Edit Bookster Availability Calendar widgets and add them to your posts and pages by using the shortcode. You can learn how to use WordPress shortcodes <a href="https://wordpress.com/support/wordpress-editor/blocks/shortcode-block/">here</a>.</p> 
-        <p>You can copy the shortcode by clicking on it from the list below or when editing a calendar widget.</p>
-      </div>
+     <?php $this->showHelpText(); ?>
 
       <form method="get" action="">
       <input type="hidden" name="page" value="<?php echo esc_attr( $_REQUEST['page'] ); ?>" />
@@ -326,6 +323,16 @@ class Bookster_ACW
     </div>
 
     <?php
+  }
+
+  /**
+   * Add help text to ACW posts
+   */
+  public function editFormTop(WP_Post $post)
+  {
+    if($post->post_type !== self::post_type)
+      return;
+    $this->showHelpText();
   }
 
   /**
@@ -375,6 +382,20 @@ class Bookster_ACW
     }
   
     return false;
+  }
+
+  /**
+   * Get help text displayed in ACW posts and list
+   */
+  private function showHelpText()
+  { ?>
+      <div class="notice notice-info">
+        <p><strong>Important:</strong> You need a <a href="https://www.booksterhq.com/">Bookster</a> subscription and have a Bookster Property ID to add to your calendar widget for it to work.</p>
+        <p>Property IDs can be found in the Bookster dashboard. Go to view a specific property and its Property ID will be the number displayed in the top right hand corner of the Listing Strength box.</p>
+        <p>Add and Edit Bookster Availability Calendar widgets and add them to your posts and pages by using the shortcode. You can learn how to use WordPress shortcodes <a href="https://wordpress.com/support/wordpress-editor/blocks/shortcode-block/">here</a>.</p> 
+        <p>You can copy the shortcode by clicking on it from the list below or when editing a calendar widget.</p>
+      </div>
+    <?php
   }
 
   /**
