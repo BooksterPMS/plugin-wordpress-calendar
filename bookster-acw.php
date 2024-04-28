@@ -146,18 +146,19 @@ class Bookster_ACW
    */
   private function registerPostType()
   {
+    $name = 'Bookster Widget';
     register_post_type( self::post_type, array(
 			'labels' => array(
-				'name' => 'Bookster Availability Calendars',
-				'singular_name' => 'Bookster Availability Calendar',
+				'name' => $name.'s',
+				'singular_name' => $name,
         'add_new' => 'Add New',
-  	    'add_new_item' => 'Add New Bookster Availability Calendar',
-  	    'edit_item' => 'Edit Bookster Availability Calendar',
-  	    'new_item' => 'New Bookster Availability Calendar',
-  	    'view_item' => 'View Bookster Availability Calendars',
-  	    'search_items' => 'Search Bookster Availability Calendars',
-  	    'not_found' =>  'No Bookster Availability Calendars found',
-  	    'not_found_in_trash' => 'No Bookster Availability Calendars found in Trash',
+  	    'add_new_item' => 'Add New '.$name,
+  	    'edit_item' => 'Edit '.$name,
+  	    'new_item' => 'New '.$name,
+  	    'view_item' => 'View '.$name.'s',
+  	    'search_items' => 'Search '.$name.'s',
+  	    'not_found' =>  'No '.$name.'s found',
+  	    'not_found_in_trash' => 'No '.$name.'s found in Trash',
   	    'parent_item_colon' => ''
 			),
 			'rewrite' => false,
@@ -233,10 +234,10 @@ class Bookster_ACW
    */
   public function adminMenu()
   {
-    add_menu_page('Bookster ACW', 'Bookster AC', 'edit_posts', 'bookster-acw', array($this, 'adminList'), 'dashicons-calendar');
-    $edit = add_submenu_page('bookster-acw', 'Edit Bookster Availability Calendar', 'List All', 'edit_posts', 'bookster-acw', array($this, 'adminList'));
+    add_menu_page('Bookster Widget', 'Bookster Widget', 'edit_posts', 'bookster-acw', array($this, 'adminList'), 'dashicons-calendar');
+    $edit = add_submenu_page('bookster-acw', 'Edit Bookster Widget', 'List All', 'edit_posts', 'bookster-acw', array($this, 'adminList'));
     add_action( 'load-' . $edit, array($this, 'adminEdit'), 10, 0 );
-    $addNew = add_submenu_page('bookster-acw', 'Add New Bookster Availability Calendar', 'Add New', 'edit_posts', 'bookster-acw-new', array($this, 'adminNew'));
+    $addNew = add_submenu_page('bookster-acw', 'Add New Bookster Widget', 'Add New', 'edit_posts', 'bookster-acw-new', array($this, 'adminNew'));
     add_action( 'load-' . $addNew, array($this, 'adminNew'), 10, 0 );
   }
 
@@ -394,7 +395,7 @@ class Bookster_ACW
         <p>A <a href="https://www.booksterhq.com/">Bookster</a> subscription and Property ID is <strong>required</strong>.</p>
         <p>View your property in Bookster - it's Property ID is the number displayed in the top right hand corner of the Listing Strength box.</p>
       </div>
-      <p>Add Availability Calendar widgets to your posts and pages using Shortcodes. <a href="https://wordpress.com/support/wordpress-editor/blocks/shortcode-block/">Learn how to use WordPress shortcodes</a>.</p> 
+      <p>Add Calendar Widgets to your posts and pages using Shortcodes. <a href="https://wordpress.com/support/wordpress-editor/blocks/shortcode-block/">Learn how to use WordPress shortcodes</a>.</p> 
     <?php
   }
 
